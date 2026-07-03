@@ -29,3 +29,10 @@ pnpm-debug.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# originales de marca sin optimizar (usar las versiones optimizadas en public/assets)
+public/assets/CON LOGO NUEVO.png
+public/assets/FONDO 1.png
+public/assets/LOGO NUEVO.png
+public/assets/logo_invert.png
+public/assets/mockup-of-a-man-with-sublimated-socks-standing-on-a-wet-surface-29552.png
