@@ -15,9 +15,17 @@ export const siteContent = {
   },
   navigation: [
     { label: "El problema", href: "#problema" },
-    { label: "Cómo funciona", href: "#como-funciona" },
-    { label: "Producto", href: "#producto" },
+    { label: "El truco", href: "#como-funciona" },
+    { label: "El producto", href: "#producto" },
     { label: "Contacto", href: "#contacto" },
+  ],
+  ticker: [
+    "Nunca más pierdas una media",
+    "Dos polos, cero drama",
+    "Clac® y listo",
+    "El lavarropas ya no gana",
+    "Hechas en Argentina",
+    "Se atraen desde 2024",
   ],
   problemLines: [
     {
@@ -33,6 +41,14 @@ export const siteContent = {
       text: "Una media sola no es minimalismo. Es abandono.",
     },
   ],
+  wanted: {
+    title: "Se busca",
+    subject: "Media derecha, gris jaspeado",
+    alias: "Responde al apodo de «la otra»",
+    lastSeen: "Vista por última vez entrando al lavarropas. Ciclo centrifugado. Sin testigos.",
+    reward: "Recompensa: reencuentro emotivo con su pareja.",
+    note: "Cualquier información, gritarla al placard.",
+  },
   steps: [
     {
       number: "01",
@@ -41,8 +57,8 @@ export const siteContent = {
     },
     {
       number: "02",
-      title: "Acercalas",
-      text: "Cuando te las sacás, juntás los logos. El imán está escondido justo debajo.",
+      title: "Juntalas",
+      text: "Cuando te las sacás, acercás los escudos. El imán vive escondido justo abajo.",
     },
     {
       number: "03",
@@ -56,13 +72,14 @@ export const siteContent = {
     "Cajón menos caótico",
     "Listas para lavar, guardar y viajar",
     "La pareja más estable de tu placard",
+    "No curan la soledad. La de tus medias, sí.",
   ],
   manifesto: [
-    "No arreglamos tu vida. Pero tus medias quedan juntas.",
-    "Si algo se va a separar, que no sean tus medias.",
-    "El amor existe. Y viene con imán.",
-    "Menos medias viudas. Más orden.",
-    "Una solución ridículamente simple para un problema ridículamente real.",
+    "No arreglamos tu vida. Pero tus medias quedan *juntas*.",
+    "Si algo se va a separar, que no sean *tus medias*.",
+    "El amor existe. Y viene *con imán*.",
+    "Menos medias viudas. Más *orden*.",
+    "Una solución ridículamente simple para un problema ridículamente *real*.",
   ],
 } as const;
 

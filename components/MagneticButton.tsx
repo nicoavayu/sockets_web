@@ -7,7 +7,7 @@ type MagneticButtonProps = {
   href: string;
   children: ReactNode;
   className?: string;
-  variant?: "ink" | "light" | "cyan";
+  variant?: "ink" | "paper" | "outline";
   external?: boolean;
   ariaLabel?: string;
 };
@@ -22,13 +22,13 @@ export function MagneticButton({
 }: MagneticButtonProps) {
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
-  const x = useSpring(rawX, { stiffness: 280, damping: 20, mass: 0.4 });
-  const y = useSpring(rawY, { stiffness: 280, damping: 20, mass: 0.4 });
+  const x = useSpring(rawX, { stiffness: 260, damping: 18, mass: 0.45 });
+  const y = useSpring(rawY, { stiffness: 260, damping: 18, mass: 0.45 });
 
   const onMove = (event: MouseEvent<HTMLAnchorElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
-    rawX.set((event.clientX - rect.left - rect.width / 2) * 0.12);
-    rawY.set((event.clientY - rect.top - rect.height / 2) * 0.16);
+    rawX.set((event.clientX - rect.left - rect.width / 2) * 0.18);
+    rawY.set((event.clientY - rect.top - rect.height / 2) * 0.24);
   };
 
   const reset = () => {
@@ -39,21 +39,20 @@ export function MagneticButton({
   return (
     <motion.a
       aria-label={ariaLabel}
-      className={`magnetic-button magnetic-button--${variant} ${className}`}
+      className={`btn btn--${variant} ${className}`}
+      data-magnet
       href={href}
       onMouseLeave={reset}
       onMouseMove={onMove}
       rel={external ? "noreferrer" : undefined}
       style={{ x, y }}
       target={external ? "_blank" : undefined}
-      whileTap={{ scale: 0.96 }}
+      whileTap={{ scale: 0.95 }}
     >
-      <span>{children}</span>
-      <span aria-hidden="true" className="magnetic-button__pole">
-        N
-      </span>
-      <span aria-hidden="true" className="magnetic-button__pole">
-        S
+      <span className="btn__label">{children}</span>
+      <span aria-hidden="true" className="btn__poles">
+        <i>N</i>
+        <i>S</i>
       </span>
     </motion.a>
   );

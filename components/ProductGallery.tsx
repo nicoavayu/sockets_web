@@ -1,85 +1,140 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { AssetImage } from "@/components/AssetImage";
+import Image from "next/image";
+import { useRef, useState } from "react";
+import type { PointerEvent } from "react";
 import { SectionTitle } from "@/components/SectionTitle";
 import { assets } from "@/lib/assets";
 
 const galleryItems = [
   {
-    className: "gallery-card--front",
-    label: "Frente / El flechazo",
+    src: assets.pairStudio,
+    width: 1600,
+    height: 2400,
+    label: "EL PAR",
+    caption: "Juntos, como corresponde.",
+    alt: "Par de medias Sockets blancas sobre fondo mostaza",
+  },
+  {
+    src: assets.streetMockup,
+    width: 1600,
+    height: 1066,
+    label: "EN LA CALLE",
+    caption: "Se bancan todo. Hasta la lluvia.",
+    alt: "Medias Sockets negras puestas, con zapatillas blancas sobre asfalto mojado",
+  },
+  {
     src: assets.packagingFront,
-    alt: "Frente del packaging Sockets",
+    width: 1248,
+    height: 1800,
+    label: "EL PACK",
+    caption: "2 pares. 0 dramas.",
+    alt: "Frente del packaging de Sockets",
   },
   {
-    className: "gallery-card--art",
-    label: "Gráfica / Polos opuestos",
+    src: assets.knitBanner,
+    width: 1920,
+    height: 1080,
+    label: "EL TEJIDO",
+    caption: "Detalle que abraza.",
+    alt: "Textura tejida de la marca Sockets con rayas bordó y petróleo",
+  },
+  {
     src: assets.packagingArt,
-    alt: "Gráfica de packaging con media roja y media cyan",
-  },
-  {
-    className: "gallery-card--back",
-    label: "Dorso / La letra chica",
-    src: assets.packagingBack,
-    alt: "Dorso del packaging Sockets",
+    width: 1248,
+    height: 1800,
+    label: "LA GRÁFICA",
+    caption: "Polos opuestos que se atraen.",
+    alt: "Arte del packaging con imanes rojo y cyan",
   },
 ] as const;
 
 export function ProductGallery() {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [dragging, setDragging] = useState(false);
+  const dragState = useRef({ startX: 0, startScroll: 0, moved: false });
+
+  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    const scroller = scrollerRef.current;
+    if (!scroller || event.pointerType !== "mouse") return;
+    setDragging(true);
+    dragState.current = {
+      startX: event.clientX,
+      startScroll: scroller.scrollLeft,
+      moved: false,
+    };
+  };
+
+  const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    const scroller = scrollerRef.current;
+    if (!scroller || !dragging) return;
+    const delta = event.clientX - dragState.current.startX;
+    if (Math.abs(delta) > 4) dragState.current.moved = true;
+    scroller.scrollLeft = dragState.current.startScroll - delta;
+  };
+
+  const endDrag = () => setDragging(false);
+
   return (
-    <section className="product-section" id="producto">
+    <section className="gallery" id="producto">
       <SectionTitle
         index="05"
-        label="El producto"
+        label="EL PRODUCTO"
         light
-        title="Parece packaging. Se siente como un manifiesto."
+        title={
+          <>
+            De cerca también <em>rinde.</em>
+          </>
+        }
       />
 
-      <div className="gallery-grid">
+      <div
+        className={`gallery__scroller ${dragging ? "is-dragging" : ""}`}
+        data-cursor="ARRASTRÁ →"
+        onPointerDown={onPointerDown}
+        onPointerLeave={endDrag}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        ref={scrollerRef}
+      >
         {galleryItems.map((item, index) => (
-          <motion.figure
-            className={`gallery-card ${item.className}`}
-            initial={{ opacity: 0, y: 42, rotate: index === 1 ? 2 : -2 }}
-            key={item.src}
-            transition={{ duration: 0.62, type: "spring" }}
-            viewport={{ amount: 0.2, once: true }}
-            whileHover={{ rotate: index === 1 ? -1 : 1, scale: 1.012 }}
-            whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+          <figure
+            className={`gallery__card ${
+              item.height > item.width ? "gallery__card--tall" : "gallery__card--wide"
+            }`}
+            key={item.label}
+            style={{ rotate: `${index % 2 === 0 ? -1.2 : 1.4}deg` }}
           >
-            <AssetImage alt={item.alt} src={item.src} />
+            <div className="gallery__frame">
+              <Image
+                alt={item.alt}
+                draggable={false}
+                height={item.height}
+                sizes="(max-width: 900px) 74vw, 30vw"
+                src={item.src}
+                width={item.width}
+              />
+            </div>
             <figcaption>
-              <span>0{index + 1}</span>
-              {item.label}
+              <span>0{index + 1} / {item.label}</span>
+              <em>{item.caption}</em>
             </figcaption>
-          </motion.figure>
+          </figure>
         ))}
 
-        <motion.div
-          className="gallery-brand-card"
-          initial={{ opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          whileInView={{ opacity: 1, scale: 1 }}
-        >
-          <AssetImage alt="Logo de Sockets" src={assets.logo} />
+        <div className="gallery__endcard" aria-hidden="true">
           <p>
-            Dos polos.
+            FIN DEL
             <br />
-            Una obsesión:
-            <br />
-            <strong>no separarse.</strong>
+            CATÁLOGO.
           </p>
-        </motion.div>
+          <span>Las medias siguen juntas. ✓</span>
+        </div>
       </div>
 
-      <div className="product-note">
-        <span>OBJETO COTIDIANO / IDEA POCO COTIDIANA</span>
-        <p>
-          Medias que hacen exactamente lo que esperás de una buena media:
-          comodidad, actitud y no desaparecer en circunstancias sospechosas.
-        </p>
-      </div>
+      <p className="gallery__hint" aria-hidden="true">
+        ← ARRASTRÁ PARA CHUSMEAR →
+      </p>
     </section>
   );
 }

@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { MagneticButton } from "@/components/MagneticButton";
 import { siteContent } from "@/data/site-content";
@@ -7,64 +10,93 @@ export function ContactSection() {
   const { contact } = siteContent;
 
   return (
-    <section className="contact-section" id="contacto">
-      <div className="contact-section__copy">
-        <p className="eyebrow">07 / EL INICIO DE UNA RELACIÓN ESTABLE</p>
-        <h2>
-          Tus medias
-          <br />
-          ya hicieron <span>match.</span>
-        </h2>
-        <p className="contact-section__lead">
+    <section className="contact" id="contacto">
+      <div className="contact__copy">
+        <motion.p
+          className="contact__eyebrow"
+          initial={{ opacity: 0, y: 14 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.6 }}
+          whileInView={{ opacity: 1, y: 0 }}
+        >
+          07 / EL INICIO DE UNA RELACIÓN ESTABLE
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 34 }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, amount: 0.5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+        >
+          Tus medias ya hicieron <em>match.</em>
+        </motion.h2>
+        <motion.p
+          className="contact__lead"
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.55, delay: 0.1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+        >
           Comprá, consultá o proponé una colaboración. Para terapia de parejas
           humanas todavía no estamos tomando turnos.
-        </p>
-        <div className="contact-actions">
-          <MagneticButton external href={contact.purchaseUrl} variant="light">
-            Quiero mis Sockets
+        </motion.p>
+        <motion.div
+          className="contact__actions"
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.55, delay: 0.18 }}
+          viewport={{ once: true, amount: 0.5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+        >
+          <MagneticButton external href={contact.purchaseUrl} variant="paper">
+            QUIERO MIS SOCKETS
           </MagneticButton>
-          <MagneticButton href={`mailto:${contact.email}`} variant="cyan">
-            Escribirnos
+          <MagneticButton href={`mailto:${contact.email}`} variant="outline">
+            ESCRIBIRNOS
           </MagneticButton>
-        </div>
+        </motion.div>
       </div>
 
-      <div className="contact-section__aside">
-        <div className="contact-qr">
-          <div>
-            <Image
-              alt="Código QR de Sockets"
-              height={1200}
-              sizes="(max-width: 768px) 48vw, 16vw"
-              src={assets.qr}
-              width={1200}
-            />
-          </div>
+      <div className="contact__aside">
+        <motion.div
+          className="contact__qr"
+          initial={{ opacity: 0, rotate: 6, y: 30 }}
+          transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
+          viewport={{ once: true, amount: 0.4 }}
+          whileInView={{ opacity: 1, rotate: 2.5, y: 0 }}
+        >
+          <span aria-hidden="true" className="tape tape--top" />
+          <Image
+            alt="Código QR que lleva al Instagram de Sockets"
+            height={220}
+            src={assets.qr}
+            width={220}
+          />
           <p>
-            Escaneá.
-            <br />
-            Mirá.
-            <br />
-            <strong>Enamorate.</strong>
+            Escaneá. Mirá. <em>Enamorate.</em>
           </p>
-        </div>
+        </motion.div>
 
-        <div className="contact-links">
+        <div className="contact__links">
           <a href={`mailto:${contact.email}`}>
-            <span>Consultas</span>
+            <span>CONSULTAS</span>
             {contact.email}
+            <i aria-hidden="true">→</i>
           </a>
           <a href={`mailto:${contact.suggestionsEmail}`}>
-            <span>Sugerencias, ideas y medias encontradas</span>
+            <span>SUGERENCIAS Y MEDIAS ENCONTRADAS</span>
             {contact.suggestionsEmail}
+            <i aria-hidden="true">→</i>
           </a>
           <a href={contact.instagramUrl} rel="noreferrer" target="_blank">
-            <span>Instagram / TikTok</span>
-            {contact.instagramHandle} ↗
+            <span>INSTAGRAM / TIKTOK</span>
+            {contact.instagramHandle}
+            <i aria-hidden="true">↗</i>
           </a>
-          <a href={`mailto:${contact.email}?subject=Mayoristas%20%2F%20Colaboración`}>
-            <span>Mayoristas y colaboraciones</span>
-            Hagamos algo juntos →
+          <a
+            href={`mailto:${contact.email}?subject=Mayoristas%20%2F%20Colaboraci%C3%B3n`}
+          >
+            <span>MAYORISTAS Y COLABORACIONES</span>
+            Hagamos algo juntos
+            <i aria-hidden="true">→</i>
           </a>
         </div>
       </div>

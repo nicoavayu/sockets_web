@@ -1,58 +1,90 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
 import { SectionTitle } from "@/components/SectionTitle";
-import { SockIllustration } from "@/components/SockIllustration";
 import { siteContent } from "@/data/site-content";
+import { assets } from "@/lib/assets";
 
 export function HowItWorks() {
   return (
-    <section className="how-section" id="como-funciona">
+    <section className="how" id="como-funciona">
       <SectionTitle
         index="03"
-        label="Cómo funciona"
-        title="Tres pasos. Cero búsquedas arqueológicas."
+        label="EL TRUCO"
+        title={
+          <>
+            Tres pasos. Cero ciencia. <em>Bueno, un poco de física.</em>
+          </>
+        }
       />
 
-      <div className="steps-grid">
+      <div className="how__steps">
         {siteContent.steps.map((step, index) => (
-          <article className="step-card" key={step.number}>
-            <div className="step-card__top">
-              <span>{step.number}</span>
-              <i aria-hidden="true">{index === 2 ? "✓" : "↘"}</i>
-            </div>
+          <motion.article
+            className="how__step"
+            initial={{ opacity: 0, y: 40 }}
+            key={step.number}
+            transition={{ duration: 0.55, delay: index * 0.1 }}
+            viewport={{ once: true, amount: 0.4 }}
+            whileInView={{ opacity: 1, y: 0 }}
+          >
+            <span className="how__step-number">{step.number}</span>
             <h3>{step.title}</h3>
             <p>{step.text}</p>
-          </article>
+            <i aria-hidden="true" className="how__step-mark">
+              {index === 2 ? "✓" : "→"}
+            </i>
+          </motion.article>
         ))}
       </div>
 
-      <div className="magnet-explainer">
-        <div className="magnet-explainer__visual">
-          <SockIllustration color="cyan" revealMagnet />
-          <div className="magnet-callout">
-            <span />
-            <p>
-              <strong>Acá.</strong>
-              Debajo del logo. Discreto a la vista, obsesivo con no separarse.
-            </p>
-          </div>
-        </div>
-        <div className="magnet-explainer__copy">
-          <span className="eyebrow">Radiografía del asunto</span>
-          <h3>El secreto no se ve. Se siente.</h3>
+      <div className="how__xray">
+        <motion.figure
+          className="how__xray-photo"
+          initial={{ opacity: 0, scale: 0.94, rotate: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
+          whileInView={{ opacity: 1, scale: 1, rotate: -1.5 }}
+        >
+          <Image
+            alt="Par de medias Sockets: el imán vive debajo del escudo bordado"
+            height={2400}
+            sizes="(max-width: 900px) 88vw, 40vw"
+            src={assets.pairStudio}
+            width={1600}
+          />
+          <span aria-hidden="true" className="how__ping how__ping--a" />
+          <span aria-hidden="true" className="how__ping how__ping--b" />
+          <span className="how__callout">← EL IMÁN VIVE ACÁ, BAJO EL ESCUDO</span>
+        </motion.figure>
+
+        <motion.div
+          className="how__xray-copy"
+          initial={{ opacity: 0, x: 40 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.4 }}
+          whileInView={{ opacity: 1, x: 0 }}
+        >
+          <p className="how__xray-eyebrow">RADIOGRAFÍA DEL ASUNTO</p>
+          <h3>
+            El secreto no se ve. <em>Se siente.</em>
+          </h3>
           <p>
-            El imán vive integrado debajo del logo. Cuando acercás un par, se
-            reconocen, se atraen y quedan unidos para el lavado, el secado, el
-            cajón y la valija.
+            El imán vive integrado debajo del escudo bordado. Cuando acercás un
+            par, se reconocen, se atraen y quedan unidos. Discreto a la vista,
+            obsesivo con no separarse.
           </p>
-          <div>
-            <span>Lavá</span>
-            <i>→</i>
-            <span>Secá</span>
-            <i>→</i>
-            <span>Guardá</span>
-            <i>→</i>
-            <strong>Juntas</strong>
+          <div className="how__flow">
+            <span>LAVÁ</span>
+            <i aria-hidden="true">→</i>
+            <span>SECÁ</span>
+            <i aria-hidden="true">→</i>
+            <span>GUARDÁ</span>
+            <i aria-hidden="true">→</i>
+            <strong>SIGUEN JUNTAS</strong>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

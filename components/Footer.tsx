@@ -1,27 +1,24 @@
-import Image from "next/image";
 import { siteContent } from "@/data/site-content";
-import { assets } from "@/lib/assets";
+
+const LETTERS = ["S", "O", "C", "K", "E", "T", "S"];
 
 export function Footer() {
   const { brand, contact } = siteContent;
 
   return (
     <footer className="site-footer">
-      <div className="site-footer__top">
-        <a href="#inicio">
-          <Image
-            alt="Sockets"
-            height={243}
-            src={assets.logo}
-            width={339}
-          />
-        </a>
-        <p>
-          Que se pierda todo.
-          <br />
-          <strong>Menos la otra media.</strong>
-        </p>
-      </div>
+      <div aria-hidden="true" className="site-footer__stripes" />
+
+      <a aria-label="Sockets, volver arriba" className="site-footer__giant" href="#inicio">
+        {LETTERS.map((letter, index) => (
+          <span
+            className={index === 2 ? "site-footer__letter site-footer__letter--split" : "site-footer__letter"}
+            key={`${letter}-${index}`}
+          >
+            {letter}
+          </span>
+        ))}
+      </a>
 
       <div className="site-footer__links">
         <a href="https://www.sockets.com.ar">{brand.domain}</a>
@@ -36,7 +33,9 @@ export function Footer() {
 
       <div className="site-footer__bottom">
         <span>© {new Date().getFullYear()} SOCKETS®</span>
-        <span>MEDIAS IMANTADAS / HECHO EN ARGENTINA</span>
+        <span>
+          HECHO EN ARGENTINA — NINGUNA MEDIA FUE ABANDONADA HACIENDO ESTE SITIO
+        </span>
         <a href="#inicio">VOLVER ARRIBA ↑</a>
       </div>
     </footer>

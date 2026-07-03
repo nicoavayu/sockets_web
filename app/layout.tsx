@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource/bebas-neue/latin-400.css";
-import "@fontsource-variable/space-grotesk";
+import "@fontsource-variable/bricolage-grotesque";
+import "@fontsource/instrument-serif/400.css";
+import "@fontsource/instrument-serif/400-italic.css";
+import "@fontsource/space-mono/400.css";
+import "@fontsource/space-mono/700.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -24,10 +27,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/assets/packaging-front.png",
-        width: 1248,
-        height: 1800,
-        alt: "Packaging de medias imantadas Sockets",
+        url: "/assets/pair-studio.jpg",
+        width: 1600,
+        height: 2400,
+        alt: "Par de medias Sockets con escudo imantado",
       },
     ],
   },
@@ -35,18 +38,18 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sockets — Basta de medias medias",
     description: "Nunca más pierdas una media.",
-    images: ["/assets/packaging-front.png"],
+    images: ["/assets/pair-studio.jpg"],
   },
   icons: {
-    icon: "/assets/logo-sockets.png",
-    apple: "/assets/logo-sockets.png",
+    icon: "/assets/logo-diamond.png",
+    apple: "/assets/logo-diamond.png",
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#ef0b25",
+  themeColor: "#a92c48",
 };
 
 export default function RootLayout({
