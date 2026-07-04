@@ -380,9 +380,8 @@ html.has-clac-cursor [data-cursor] {
 }
 
 .intro-clac__word {
-  align-items: center;
-  display: flex;
   position: relative;
+  width: min(70vw, 440px);
   z-index: 2;
 }
 
@@ -390,34 +389,75 @@ html.has-clac-cursor [data-cursor] {
   animation: intro-shake 0.42s 0.08s;
 }
 
-.intro-clac__half {
-  color: var(--crema);
-  font-family: var(--font-display);
-  font-size: clamp(4rem, 17vw, 11.5rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 0.9;
+.intro-clac__wordmark {
+  display: block;
+  height: auto;
   user-select: none;
+  width: 100%;
 }
 
-.intro-clac__half--drag {
+/* Hueco de la C dentro del canvas 712×304 del wordmark real. */
+.intro-clac__slot,
+.intro-clac__c {
+  height: 62.17%;
+  left: 30.9%;
+  position: absolute;
+  top: 11.51%;
+  width: 12.5%;
+}
+
+.intro-clac__slot {
+  animation: slot-pulse 1.6s ease-in-out infinite;
+  border: 1.5px dashed rgba(241, 238, 230, 0.4);
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.is-snapped .intro-clac__slot {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes slot-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.intro-clac__c {
   background: none;
   border: none;
-  color: transparent;
   cursor: grab;
   padding: 0;
   touch-action: none;
-  -webkit-text-stroke: 2.5px var(--crema);
-  transition: color 0.2s 0.05s, -webkit-text-stroke 0.2s 0.05s;
 }
 
-.intro-clac__half--drag:active {
+/* Área de agarre más generosa que la C (tap target en mobile). */
+.intro-clac__c::before {
+  content: "";
+  inset: -16px;
+  position: absolute;
+}
+
+.intro-clac__c img {
+  display: block;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.45));
+  height: 100%;
+  transition: filter 0.25s;
+  user-select: none;
+  width: 100%;
+}
+
+.intro-clac__c:active {
   cursor: grabbing;
 }
 
-.is-snapped .intro-clac__half--drag {
-  color: var(--crema);
-  -webkit-text-stroke: 0px var(--crema);
+.is-snapped .intro-clac__c img {
+  filter: none;
 }
 
 .intro-clac__stamp {
@@ -913,17 +953,17 @@ html.has-clac-cursor [data-cursor] {
 }
 
 .hero__eyebrow {
-  align-items: center;
+  align-items: baseline;
   display: flex;
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  gap: 0.85rem;
+  gap: 1rem;
   letter-spacing: 0.22em;
-  margin: 0 0 1.6rem;
+  margin: 0 0 1.4rem;
 }
 
 .hero__eyebrow img {
-  height: 22px;
+  height: clamp(30px, 3vw, 40px);
   width: auto;
 }
 
@@ -2184,16 +2224,18 @@ html.has-clac-cursor [data-cursor] {
 
 @media (max-width: 560px) {
   .hero__badge {
-    top: -2rem;
+    left: 2vw;
+    top: -1.4rem;
   }
 
   .hero__badge-inner {
-    height: 76px;
-    width: 76px;
+    height: 66px;
+    width: 66px;
   }
 
   .hero__badge-inner svg {
-    font-size: 13px;
+    font-size: 11.5px;
+    inset: 4px;
   }
 
   .hero__sticker span {
@@ -2203,11 +2245,11 @@ html.has-clac-cursor [data-cursor] {
 
   .hero__eyebrow {
     flex-wrap: wrap;
-    gap: 0.6rem;
+    gap: 0.7rem;
   }
 
   .hero__eyebrow img {
-    height: 18px;
+    height: 26px;
   }
 
   .site-footer__giant img {
@@ -2219,12 +2261,8 @@ html.has-clac-cursor [data-cursor] {
     height: 38px;
   }
 
-  .intro-clac__half {
-    font-size: clamp(2.4rem, 12.5vw, 4rem);
-  }
-
-  .intro-clac__half--drag {
-    -webkit-text-stroke: 1.5px var(--crema);
+  .intro-clac__word {
+    width: min(84vw, 340px);
   }
 
   .intro-clac__top {

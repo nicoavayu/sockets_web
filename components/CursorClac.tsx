@@ -28,6 +28,7 @@ export function CursorClac() {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (!fine.matches || reduced.matches) return;
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- gate SSR-safe: debe activarse tras montar para evitar hydration mismatch
     setEnabled(true);
     document.documentElement.classList.add("has-clac-cursor");
 

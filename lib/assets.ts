@@ -1,5 +1,7 @@
 export const assets = {
   wordmark: "/assets/wordmark.png",
+  wordmarkGapCrema: "/assets/wordmark-gap-crema.png",
+  wordmarkC: "/assets/wordmark-c.png",
   diamond: "/assets/logo-diamond.png",
   diamondInvert: "/assets/logo-diamond-invert.png",
   pairStudio: "/assets/pair-studio.jpg",
