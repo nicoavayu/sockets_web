@@ -55,10 +55,10 @@ export function Hero() {
           >
             <Image
               alt="Sockets"
-              height={26}
+              height={40}
               priority
               src={assets.wordmark}
-              width={61}
+              width={94}
             />
             <span>MEDIAS IMANTADAS · BUENOS AIRES</span>
           </motion.p>
