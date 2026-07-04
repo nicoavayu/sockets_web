@@ -48,15 +48,13 @@ export function HowItWorks() {
           whileInView={{ opacity: 1, scale: 1, rotate: -1.5 }}
         >
           <Image
-            alt="Par de medias Sockets: el imán vive debajo del escudo bordado"
-            height={2400}
+            alt="Persona poniéndose medias Sockets blancas antes de salir"
+            height={1402}
             sizes="(max-width: 900px) 88vw, 40vw"
-            src={assets.pairStudio}
-            width={1600}
+            src={assets.lifestyleRitual}
+            width={1122}
           />
-          <span aria-hidden="true" className="how__ping how__ping--a" />
-          <span aria-hidden="true" className="how__ping how__ping--b" />
-          <span className="how__callout">← EL IMÁN VIVE ACÁ, BAJO EL ESCUDO</span>
+          <span className="how__callout">PAR COMPLETO. COMO SIEMPRE.</span>
         </motion.figure>
 
         <motion.div
@@ -66,14 +64,14 @@ export function HowItWorks() {
           viewport={{ once: true, amount: 0.4 }}
           whileInView={{ opacity: 1, x: 0 }}
         >
-          <p className="how__xray-eyebrow">RADIOGRAFÍA DEL ASUNTO</p>
+          <p className="how__xray-eyebrow">EN LA VIDA REAL</p>
           <h3>
-            El secreto no se ve. <em>Se siente.</em>
+            Se ven normales. <em>No lo son.</em>
           </h3>
           <p>
-            El imán vive integrado debajo del escudo bordado. Cuando acercás un
-            par, se reconocen, se atraen y quedan unidos. Discreto a la vista,
-            obsesivo con no separarse.
+            A simple vista, un par de medias como cualquiera. En la práctica,
+            un par que se atrae, se encuentra y no se suelta. Vos vivís tu
+            vida; ellas se ocupan de seguir juntas.
           </p>
           <div className="how__flow">
             <span>LAVÁ</span>

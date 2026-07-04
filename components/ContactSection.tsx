@@ -65,6 +65,14 @@ export function ContactSection() {
         >
           <span aria-hidden="true" className="tape tape--top" />
           <Image
+            alt=""
+            aria-hidden="true"
+            className="contact__qr-wordmark"
+            height={38}
+            src={assets.wordmark}
+            width={89}
+          />
+          <Image
             alt="Código QR que lleva al Instagram de Sockets"
             height={220}
             src={assets.qr}
@@ -81,9 +89,11 @@ export function ContactSection() {
             {contact.email}
             <i aria-hidden="true">→</i>
           </a>
-          <a href={`mailto:${contact.suggestionsEmail}`}>
+          <a
+            href={`mailto:${contact.email}?subject=Sugerencias%20%2F%20Media%20encontrada`}
+          >
             <span>SUGERENCIAS Y MEDIAS ENCONTRADAS</span>
-            {contact.suggestionsEmail}
+            Contanos todo
             <i aria-hidden="true">→</i>
           </a>
           <a href={contact.instagramUrl} rel="noreferrer" target="_blank">

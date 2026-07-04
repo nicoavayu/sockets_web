@@ -49,8 +49,8 @@ export function Header() {
             height={64}
             loading="eager"
             priority
-            src={assets.logoHeader}
-            width={89}
+            src={assets.diamond}
+            width={64}
           />
         </a>
 
@@ -101,6 +101,19 @@ export function Header() {
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
           >
+            <motion.div
+              animate={{ opacity: 1 }}
+              className="mobile-menu__brand"
+              initial={{ opacity: 0 }}
+              transition={{ delay: 0.1 }}
+            >
+              <Image
+                alt="Sockets"
+                height={44}
+                src={assets.wordmark}
+                width={103}
+              />
+            </motion.div>
             <div className="mobile-menu__links">
               {siteContent.navigation.map((item, index) => (
                 <motion.a

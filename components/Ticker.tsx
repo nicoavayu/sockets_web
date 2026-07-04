@@ -12,7 +12,7 @@ export function Ticker() {
 
   return (
     <div aria-hidden="true" className="ticker">
-      <div className="ticker__stripes" />
+      <div className="brand-divider" />
       <div className="ticker__track">
         <span>{row}</span>
         <span>{row}</span>

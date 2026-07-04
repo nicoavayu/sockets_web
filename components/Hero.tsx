@@ -53,7 +53,14 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             transition={{ delay: 0.15, duration: 0.5 }}
           >
-            SOCKETS® · MEDIAS IMANTADAS · BUENOS AIRES
+            <Image
+              alt="Sockets"
+              height={26}
+              priority
+              src={assets.wordmark}
+              width={61}
+            />
+            <span>MEDIAS IMANTADAS · BUENOS AIRES</span>
           </motion.p>
 
           <h1 className="hero__title">
@@ -95,8 +102,8 @@ export function Hero() {
             initial={{ opacity: 0, y: 18 }}
             transition={{ delay: 0.62, duration: 0.55 }}
           >
-            Un imán escondido bajo el escudo mantiene el par junto: lavarropas,
-            secado, cajón, valija. <strong>Chau medias viudas.</strong>
+            Medias que se atraen entre sí y quedan juntas: lavarropas, secado,
+            cajón, valija. <strong>Chau medias viudas.</strong>
           </motion.p>
 
           <motion.div
@@ -123,7 +130,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             transition={{ delay: 0.95 }}
           >
-            <li>IMÁN BAJO EL ESCUDO</li>
+            <li>SE ATRAEN ENTRE SÍ</li>
             <li>APTAS LAVARROPAS</li>
             <li>HECHAS EN ARGENTINA</li>
           </motion.ul>
@@ -141,7 +148,7 @@ export function Hero() {
               <span aria-hidden="true" className="tape tape--tl" />
               <span aria-hidden="true" className="tape tape--br" />
               <Image
-                alt="Par de medias Sockets blancas con escudo imantado, juntas como corresponde"
+                alt="Par de medias Sockets blancas, juntas como corresponde"
                 height={2400}
                 priority
                 sizes="(max-width: 900px) 82vw, 38vw"
@@ -202,7 +209,7 @@ export function Hero() {
             initial={{ opacity: 0, rotate: -4 }}
             transition={{ delay: 1.2 }}
           >
-            2 IMANES ADENTRO
+            INSEPARABLES DE FÁBRICA
           </motion.span>
         </div>
       </div>

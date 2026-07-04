@@ -6,8 +6,7 @@ export const siteContent = {
     domain: "www.sockets.com.ar",
   },
   contact: {
-    email: "hola@sockets.com.ar",
-    suggestionsEmail: "sugerencias@sockets.com.ar",
+    email: "sockets.original@gmail.com",
     instagramHandle: "@sockets_original",
     instagramUrl: "https://www.instagram.com/sockets_original/",
     tiktokUrl: "https://www.tiktok.com/@sockets_original",
@@ -58,7 +57,7 @@ export const siteContent = {
     {
       number: "02",
       title: "Juntalas",
-      text: "Cuando te las sacás, acercás los escudos. El imán vive escondido justo abajo.",
+      text: "Cuando te las sacás, las acercás y listo: se agarran solas. ¡Clac!",
     },
     {
       number: "03",

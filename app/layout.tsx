@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/bricolage-grotesque";
-import "@fontsource/instrument-serif/400.css";
-import "@fontsource/instrument-serif/400-italic.css";
+import "@fontsource/barlow-condensed/600-italic.css";
+import "@fontsource/barlow-condensed/700-italic.css";
 import "@fontsource/space-mono/400.css";
 import "@fontsource/space-mono/700.css";
 import "./globals.css";
@@ -27,10 +27,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/assets/pair-studio.jpg",
-        width: 1600,
-        height: 2400,
-        alt: "Par de medias Sockets con escudo imantado",
+        url: "/assets/doypack-white.jpg",
+        width: 1448,
+        height: 1086,
+        alt: "Packaging blanco de Sockets con dos pares de medias",
       },
     ],
   },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sockets — Basta de medias medias",
     description: "Nunca más pierdas una media.",
-    images: ["/assets/pair-studio.jpg"],
+    images: ["/assets/doypack-white.jpg"],
   },
   icons: {
     icon: "/assets/logo-diamond.png",
