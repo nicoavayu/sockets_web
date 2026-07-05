@@ -36,11 +36,11 @@ export function ProblemSection() {
           <h3 className="wanted__title">{wanted.title}</h3>
           <div className="wanted__photo">
             <Image
-              alt="Foto de archivo: medias Sockets negras en la calle, la última vez que se las vio juntas"
-              height={1066}
+              alt="Foto de archivo: medias Sockets blancas frente al lavarropas, la última vez que se las vio juntas"
+              height={1086}
               sizes="(max-width: 900px) 78vw, 30vw"
-              src={assets.streetMockup}
-              width={1600}
+              src={assets.wanted}
+              width={1448}
             />
             <span>FOTO DE ARCHIVO — AÚN JUNTAS</span>
           </div>
