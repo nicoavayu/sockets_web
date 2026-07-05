@@ -42,7 +42,7 @@ export const siteContent = {
   ],
   wanted: {
     title: "Se busca",
-    subject: "Media derecha, gris jaspeado",
+    subject: "Media derecha, blanca con mancha de café en el talón",
     alias: "Responde al apodo de «la otra»",
     lastSeen: "Vista por última vez entrando al lavarropas. Ciclo centrifugado. Sin testigos.",
     reward: "Recompensa: reencuentro emotivo con su pareja.",
