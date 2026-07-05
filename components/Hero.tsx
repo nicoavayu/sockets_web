@@ -148,12 +148,12 @@ export function Hero() {
               <span aria-hidden="true" className="tape tape--tl" />
               <span aria-hidden="true" className="tape tape--br" />
               <Image
-                alt="Par de medias Sockets blancas, juntas como corresponde"
-                height={2400}
+                alt="Pack Sockets: el doypack con un par de medias blancas y uno negro, juntos como corresponde"
+                height={1402}
                 priority
                 sizes="(max-width: 900px) 82vw, 38vw"
-                src={assets.pairStudio}
-                width={1600}
+                src={assets.hero}
+                width={1122}
               />
               <figcaption>PAR N°001 — INSEPARABLES DESDE 2024</figcaption>
             </motion.figure>

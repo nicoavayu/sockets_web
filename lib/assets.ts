@@ -5,6 +5,7 @@ export const assets = {
   diamond: "/assets/logo-diamond.png",
   diamondInvert: "/assets/logo-diamond-invert.png",
   pairStudio: "/assets/pair-studio.jpg",
+  hero: "/assets/hero.jpg",
   streetMockup: "/assets/street-mockup.jpg",
   wanted: "/assets/wanted.jpg",
   doypackWhite: "/assets/doypack-white.jpg",
