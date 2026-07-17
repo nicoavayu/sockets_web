@@ -14,4 +14,5 @@ export const assets = {
   lifestyleCalle: "/assets/lifestyle-calle.jpg",
   lifestyleRitual: "/assets/lifestyle-ritual.jpg",
   qr: "/assets/qr-sockets.png",
+  campaignFilm: "/assets/BASTA_CC_AE1.mp4",
 } as const;

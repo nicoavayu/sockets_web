@@ -119,8 +119,8 @@ export function Hero() {
             >
               QUIERO UN PAR
             </MagneticButton>
-            <MagneticButton href="#como-funciona" variant="outline">
-              VER EL TRUCO ↓
+            <MagneticButton href="#film" variant="outline">
+              VER EL SPOT ↓
             </MagneticButton>
           </motion.div>
 

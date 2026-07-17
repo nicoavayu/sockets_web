@@ -1,4 +1,5 @@
 import { Benefits } from "@/components/Benefits";
+import { CampaignFilm } from "@/components/CampaignFilm";
 import { ClacScene } from "@/components/ClacScene";
 import { ContactSection } from "@/components/ContactSection";
 import { CursorClac } from "@/components/CursorClac";
@@ -26,6 +27,7 @@ export default function Home() {
       <main id="contenido">
         <Hero />
         <Ticker />
+        <CampaignFilm />
         <ProblemSection />
         <ClacScene />
         <HowItWorks />
